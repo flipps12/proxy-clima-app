@@ -1,5 +1,5 @@
 {
-  "name": "server-clima-intermediario",
+  "name": "proxy-clima-app",
   "version": "1.0.0",
   "description": "Intermediarion de api",
   "main": "index.js",
