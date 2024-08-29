@@ -7,10 +7,13 @@ configDotenv()
 const app = express();
 const apiKey = process.env.API_KEY;
 const corsOptions = {
-    origin: "http://localhost:5173/",
+    origin: "http://localhost:5173",
     optionsSuccessStatus: 200
 };
+
 app.use(cors(corsOptions));
+
+
 const apiWeather = (param, cb)=>{
     console.log(param)
     axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${param[0]}&lon=${param[1]}&exclude=${param[2]}&appid=${apiKey}&lang=${param[3]}&units=metric`)
