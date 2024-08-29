@@ -7,7 +7,7 @@ configDotenv()
 const app = express();
 const apiKey = process.env.API_KEY;
 const corsOptions = {
-    origin: "http://react-web-clima.vercel.app/",
+    origin: "https://react-web-clima.vercel.app",
     optionsSuccessStatus: 200
 };
 
