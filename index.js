@@ -7,7 +7,7 @@ configDotenv()
 const app = express();
 const apiKey = process.env.API_KEY;
 const corsOptions = {
-    origin: "https://.vercel.app",
+    origin: "http://localhost:5173/",
     optionsSuccessStatus: 200
 };
 
@@ -24,7 +24,7 @@ const apiWeather = (param, cb)=>{
 
 app.get("/", (req, res) => res.send("Status: online"))
 
-app.get("/api/v1/weather/:params",/* cors(corsOptions),*/ async (req, res, next) => { // lat; lon; exclude: lang (es, en)
+app.get("/api/v1/weather/:params", cors(corsOptions), async (req, res, next) => { // lat; lon; exclude: lang (es, en)
     const params = req.params.params.split("&");
     
     apiWeather(params, (response)=>{
