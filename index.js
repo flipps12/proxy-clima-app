@@ -13,7 +13,7 @@ const corsOptions = {
 
 const apiWeather = (param, cb)=>{
     console.log(param)
-    axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${param[0]}&lon=${param[1]}&exclude=${param[2]}&appid=${apiKey}&lang=${param[3]}`)
+    axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${param[0]}&lon=${param[1]}&exclude=${param[2]}&appid=${apiKey}&lang=${param[3]}&units=metric`)
         .then((response) => {
             cb(response.data);
         })
