@@ -6,21 +6,24 @@ configDotenv()
 
 const app = express();
 const apiKey = process.env.API_KEY;
-const allowedOrigins = ['https://react-web-clima.vercel.app/', 'http://localhost:5173/'];
-
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = 'El origen ' + origin + ' no está permitido por la política CORS.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  }
+    origin: "https://react-web-clima.vercel.app/",
+    optionsSuccessStatus: 200
 };
 
 app.use(cors(corsOptions));
+// const allowedOrigins = ['https://react-web-clima.vercel.app/', 'http://localhost:5173/'];
 
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (!origin) return callback(null, true);
+//     if (allowedOrigins.indexOf(origin) === -1) {
+//       const msg = 'El origen ' + origin + ' no está permitido por la política CORS.';
+//       return callback(new Error(msg), false);
+//     }
+//     return callback(null, true);
+//   }
+// };
 
 const apiWeather = (param, cb)=>{
     console.log(param)
