@@ -22,6 +22,8 @@ const apiWeather = (param, cb)=>{
         })
 }
 
+app.get("/", (req, res) => res.send("Status: online"))
+
 app.get("/api/v1/weather/:params",/* cors(corsOptions),*/ async (req, res, next) => { // lat; lon; exclude
     const params = req.params.params.split("&");
     
