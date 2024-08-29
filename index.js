@@ -10,7 +10,7 @@ const corsOptions = {
     origin: "http://localhost:5173/",
     optionsSuccessStatus: 200
 };
-
+app.use(cors(corsOptions));
 const apiWeather = (param, cb)=>{
     console.log(param)
     axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${param[0]}&lon=${param[1]}&exclude=${param[2]}&appid=${apiKey}&lang=${param[3]}&units=metric`)
@@ -24,7 +24,7 @@ const apiWeather = (param, cb)=>{
 
 app.get("/", (req, res) => res.send("Status: online"))
 
-app.get("/api/v1/weather/:params", cors(corsOptions), async (req, res, next) => { // lat; lon; exclude: lang (es, en)
+app.get("/api/v1/weather/:params", async (req, res, next) => { // lat; lon; exclude: lang (es, en)
     const params = req.params.params.split("&");
     
     apiWeather(params, (response)=>{
