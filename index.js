@@ -11,7 +11,7 @@ const apiKey = process.env.API_KEY;
 //     optionsSuccessStatus: 200
 // };
 
-const allowedOrigins = ['https://react-web-clima.vercel.app', 'http://localhost:5173/'];
+const allowedOrigins = ['https://react-web-clima.vercel.app', 'http://localhost:5173'];
 
 const corsOptions = {
   origin: function (origin, callback) {
